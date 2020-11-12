@@ -1,4 +1,4 @@
-# FEM of WINDY Wind Tunnel Model fitted with the 'Lite' Folding Wingtip
+# Finite Element Model of the WINDY Wind Tunnel Model fitted with the 'Lite' Folding Wingtip
 Package Author: R Cheung
 
 Contact: r.c.m.cheung@bristol.ac.uk
