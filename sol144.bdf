@@ -4,12 +4,12 @@ $ This program is free software: you can redistribute it and/or modify
 $ it under the terms of the GNU General Public License as published by
 $ the Free Software Foundation, either version 3 of the License, or
 $ (at your option) any later version.
-$ 
+$
 $ This program is distributed in the hope that it will be useful,
 $ but WITHOUT ANY WARRANTY; without even the implied warranty of
 $ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 $ GNU General Public License for more details.
-$ 
+$
 $ You should have received a copy of the GNU General Public License
 $ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 $-------2-------3-------4-------5-------6-------7-------8-------9-------T
@@ -17,40 +17,34 @@ $ FEM of WINDY Wind Tunnel Model fitted with the 'Lite' Folding Wingtip
 $-------2-------3-------4-------5-------6-------7-------8-------9-------T
 $ Created: R Cheung
 $ Contact: r.c.m.cheung@bristol.ac.uk
-$ Modified: 11 June 2020
+$ Modified: 08 December 2020
 $-------2-------3-------4-------5-------6-------7-------8-------9-------T
 NASTRAN NLINES=999999
-$ Static AeroElastic Analysis
+$ STATIC AEROELASTIC ANALYSIS
 SOL 144
 TIME 600
 CEND
-$ Direct Text Input for Global Case Control Data
-TITLE = WINDY - LITE FWT
-ECHO = NONE
-MAXLINES = 999999999
-AECONFIG = AeroSG2D
-AESYMXZ = Symmetric
-AESYMXY = Asymmetric
-AEROF = ALL
-APRES = ALL
+TITLE=WINDY - LITE FWT
+ECHO=NONE
+MAXLINES=999999999
+AECONFIG=AeroSG2D
+AESYMXZ=Symmetric
+AESYMXY=Asymmetric
+AEROF=ALL
+APRES=ALL
 DISPLACEMENT(SORT1,REAL)=ALL
 SPCFORCES(SORT1,REAL)=ALL
 STRESS(SORT1,REAL,VONMISES,BILIN)=ALL
-$ Direct Text Input for this Subcase
 SUBCASE 1
-   SUBTITLE=AOA5DEG
-   SPC = 3
-   TRIM = 1
-   LOAD = 11
+  SUBTITLE=AOA5DEG
+  SPC=3
+  TRIM=1
+  LOAD=11
 BEGIN BULK
-$ Direct Text Input for Bulk Data
-PARAM    POST    0
-PARAM    WTMASS 1.
-PARAM    SNORM  20.
-PARAM   PRTMAXIM YES
-$ THE PARAM,LMODES,N ENTRY SPECIFIES THAT N MODES ARE TO BE $
-$ USED IN THE ANALYSIS. $
-PARAM   LMODES  10
+PARAM,POST,0
+PARAM,WTMASS,1.
+PARAM,SNORM,20.
+PARAM,PRTMAXIM,YES
 $-------2-------3-------4-------5-------6-------7-------8-------9-------T
 $ Gravity
 $-------2-------3-------4-------5-------6-------7-------8-------9-------T
@@ -74,7 +68,7 @@ $-------2-------3-------4-------5-------6-------7-------8-------9-------T
 INCLUDE 'aero.bdf'
 AEROS   0       0       .15     1.345   .20175
 TRIM,1,0.052941,198.450000,ANGLEA,0.087266,SIDES,0.
-,ROLL ,0.,PITCH,0.,YAW  ,0.,URDD1,0.
-,URDD2,0.,URDD3,0.,URDD4,0.,URDD5,0.
-,URDD6,0.
+ ,ROLL ,0.,PITCH,0.,YAW  ,0.,URDD1,0.
+ ,URDD2,0.,URDD3,0.,URDD4,0.,URDD5,0.
+ ,URDD6,0.
 ENDDATA
